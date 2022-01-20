@@ -1,7 +1,9 @@
+
 body{
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgb(66, 152, 223), rgb(179, 57, 118));
+    /* background-image: linear-gradient(rgb(66, 152, 223), rgb(179, 57, 118)); */
+    background-color: rgb(58, 224, 224);
 
 }
 
@@ -14,17 +16,24 @@ img{
 
 .wrapper{
     text-align: center;
-    max-width: 400px;
+    max-width:500px;
     margin: 120px auto;
     width: 100%;
     background: white;
     border-radius: 30px;
     padding: 20px;
     position: relative;
+
 }
 .wrapper header{
     font-size: 30px;
     font-weight: bold;
+    background-color:brown;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color:white;
 }
 /* Input div */
 .input-div{
@@ -36,7 +45,7 @@ img{
     width: 85%;
     height: 100%;
     border:none;
-    border-bottom: 1px black solid;
+    border-bottom: 2px black solid;
     padding-left: 15px;
     /* border-radius: 30px; */
     outline: none;
@@ -57,19 +66,25 @@ img{
 .list-ul{
     padding:0;
     position: relative;
+    overflow: hidden;
+
 }
 .list-ul li{
     list-style: none;
     line-height: 2rem;
-    color: blue;
-    font-family: cursive;
-    font-weight: bold;
+    color: black;
     
+}
+/* label */
+.list-ul li label{
+    color:green;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .list-ul li span img{
     cursor: pointer;
     transition: opacity 1s;
-    opacity: 0;
+    opacity: 0.5;
 }
 .list-ul li span img:hover{
     opacity: 1;

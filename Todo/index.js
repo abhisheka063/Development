@@ -2,35 +2,33 @@ let data = [];
 let list_input = document.getElementById('task-input');
 const listItem = document.getElementById('list-ul');
 let pending = document.getElementById('pending')
-let pending_data,
+let pending_data = []
 
 
 
 
-    renderList = (task) => {
-        console.log(task);
-        console.log("insider render");
+renderList = (task) => {
+    console.log("insider render");//this is just for testing
 
-        //creating list
-        const li = document.createElement('li');
-        li.innerHTML = `
+    //creating list
+    const li = document.createElement('li');
+    li.innerHTML = `
 
 
-        <input type="checkbox" id="${task.id}" ${task.completed?'checked':''} name="list" class="checked"}>
+        <input type="checkbox" id="${task.id}" ${task.completed ? 'checked' : ''} name="list" class="checked"}>
         <label for="${task.id}" class='label'>${task.title}</label>
         <span ><img src="https://cdn-icons.flaticon.com/png/512/3405/premium/3405244.png?token=exp=1642592747~hmac=d4e0c8bba262d3f84c5e1189822e17bc" class="del-icon" id="${task.id}"></span>
         <hr>
         `;
-        listItem.append(li);
-        task.completed ? li.style.textDecoration = 'line-through' : li.style.textDecoration = 'none'
+    listItem.append(li);
+    task.completed ? li.style.textDecoration = 'line-through' : li.style.textDecoration = 'none'
 
 
 
 
-    }
+}
 calculatePending = () => {
     pending_data = data.filter((pending_data) => { return pending_data.completed == false })
-    console.log(pending_data, "----")
     pending.innerHTML = `Pending Tasks:${pending_data.length}`;
 }
 addTask = (text) => {
@@ -40,8 +38,6 @@ addTask = (text) => {
         completed: false
     }
     data.push(task);
-    console.log(data);
-    console.log(pending, "peninf");
     displayList();
     return
 
@@ -49,12 +45,12 @@ addTask = (text) => {
 
 
 displayList = () => {
-    console.log("inner", listItem.innerHTML);
     calculatePending();
     listItem.innerHTML = '';
     for (let i = 0; i < data.length; i++) {
         renderList(data[i]);
     }
+     // console.log("inner", listItem.innerHTML);--> This will give the no of li added/rendered here listItem is ul--->testing
 
 
 }
@@ -83,29 +79,43 @@ toggleTask = (taskId) => {
 
 }
 completeAll = () => {
-    if(pending_data.length==0){
-        alert('You have already completed all tasks');
+    if (pending_data.length == 0) {
+        alert('You have already completed all tasks or You dont have tasks in list');
+        return
     }
-    data.map(c=>c.completed=true)
+    data.map(c => c.completed = true)
     displayList();
 }
 clearAll = () => {
+    if (data.length == 0) {
+        alert('Already cleared');
+        return
+    }
     data = [];
     console.log("inside")
     displayList();
     list_input.value = '';
     calculatePending();
 }
+// fetching data from a api
+async function gettingApiData() {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+        const task_data = await response.json();
+        data = task_data.slice(0, 10);
+        displayList();
+    }catch(error){
+        console.log(error);
+    }
+}
 
 handleClickListener = (e) => {
     const target = e.target;
-    console.log(target);
 
     if (target.className == 'complete-all') {
         completeAll();
     }
     if (target.className == 'add' || e.key == 'Enter') {
-        console.log(list_input.value);
         let text = list_input.value;
         if (text == '') {
             alert('Please enter a task first');
@@ -125,7 +135,8 @@ handleClickListener = (e) => {
         toggleTask(target.id);
     }
 }
-
+// Initializers
 
 document.addEventListener('click', handleClickListener);
 list_input.addEventListener('keyup', handleClickListener);//separately to handle enter key event
+gettingApiData();

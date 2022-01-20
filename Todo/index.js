@@ -1,6 +1,6 @@
 let data = [];
 let list_input = document.getElementById('task-input');
-let listItem = document.getElementById('list-ul');
+const listItem = document.getElementById('list-ul');
 let pending = document.getElementById('pending')
 let pending_data,
 
@@ -36,7 +36,6 @@ calculatePending = () => {
 addTask = (text) => {
     const task = {
         title: text,
-        // id: Math.floor(Math.random() * 10).toString(),
         id: Date.now().toString(),
         completed: false
     }
@@ -84,6 +83,9 @@ toggleTask = (taskId) => {
 
 }
 completeAll = () => {
+    if(pending_data.length==0){
+        alert('You have already completed all tasks');
+    }
     data.map(c=>c.completed=true)
     displayList();
 }
@@ -126,4 +128,4 @@ handleClickListener = (e) => {
 
 
 document.addEventListener('click', handleClickListener);
-list_input.addEventListener('keyup', handleClickListener);
+list_input.addEventListener('keyup', handleClickListener);//separately to handle enter key event

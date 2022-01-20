@@ -117,9 +117,6 @@ img{
     color: rgb(244, 244, 248);
     background-color: rgb(214, 53, 32);
     border: 1px rgb(214, 53, 32) solid;
-    border-radius: 20px;
-    line-height: 1.4rem;
-    transition: 0.5s;
 }
 .footer .clear-all:hover{
     background-color: rgb(244, 244, 248);
@@ -130,9 +127,24 @@ img{
     position: relative;
     left:33;
     color: rgb(1, 4, 160);
-    font-weight: bold;
     background-color: rgb(89, 240, 182);
     border: 1px rgb(34, 216, 125) solid;
+    
+}
+.footer .Fetch-api{
+    position: relative;
+    left:75;
+    color:white;
+    background-color: royalblue;
+    border: 1px royalblue solid;
+}
+.footer .Fetch-api:hover{
+    background-color: white;
+    color:royalblue;
+    border:1px royalblue solid;
+}
+.footer-btn-common{
+    font-weight: bold;
     border-radius: 20px;
     line-height: 1.4rem;
     transition: background-color 0.5s;

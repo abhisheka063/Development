@@ -8,15 +8,15 @@ let pending_data = []
 
 
 renderList = (task) => {
-    console.log("insider render");//this is just for testing
+    // console.log("insider render");//this is just for testing
 
     //creating list
     const li = document.createElement('li');
     li.innerHTML = `
 
 
-        <input type="checkbox" id="${task.id}" ${task.completed ? 'checked' : ''} name="list" class="checked"}>
-        <label for="${task.id}" class='label'>${task.title}</label>
+        <input type="checkbox" id="${String(task.id)}" ${(task.completed) ? 'checked' : ''} name="list" class="checked"}>
+        <label for="${String(task.id)}" class='label'>${task.title}</label>
         <span ><img src="https://cdn-icons.flaticon.com/png/512/3405/premium/3405244.png?token=exp=1642592747~hmac=d4e0c8bba262d3f84c5e1189822e17bc" class="del-icon" id="${task.id}"></span>
         <hr>
         `;
@@ -34,7 +34,7 @@ calculatePending = () => {
 addTask = (text) => {
     const task = {
         title: text,
-        id: Date.now().toString(),
+        id: Date.now(),
         completed: false
     }
     data.push(task);
@@ -50,7 +50,7 @@ displayList = () => {
     for (let i = 0; i < data.length; i++) {
         renderList(data[i]);
     }
-     // console.log("inner", listItem.innerHTML);--> This will give the no of li added/rendered here listItem is ul--->testing
+    // console.log("inner", listItem.innerHTML);--> This will give the no of li added/rendered here listItem is ul--->testing
 
 
 }
@@ -68,7 +68,6 @@ toggleTask = (taskId) => {
     const task = data.filter(function (task) {
         return task.id == taskId;
     })
-    console.log(task, "toggle")
     if (task.length > 0) {
         const currentTask = task[0];
         currentTask.completed = !currentTask.completed;
@@ -92,7 +91,6 @@ clearAll = () => {
         return
     }
     data = [];
-    console.log("inside")
     displayList();
     list_input.value = '';
     calculatePending();
@@ -104,15 +102,14 @@ async function gettingApiData() {
         const task_data = await response.json();
         data = task_data.slice(0, 10);
         displayList();
-    }catch(error){
+    } catch (error) {
         console.log(error);
     }
 }
 
 handleClickListener = (e) => {
     const target = e.target;
-
-    if (target.className == 'complete-all') {
+    if (target.id == 'complete-all') {
         completeAll();
     }
     if (target.className == 'add' || e.key == 'Enter') {
@@ -125,18 +122,24 @@ handleClickListener = (e) => {
         addTask(text);
     }
     if (target.className == 'del-icon') {
-        deleteTask(target.id);
+        //Here api id is number so coverting id to num
+        deleteTask(Number(target.id));
     }
-    if (target.className == 'clear-all') {
+    if (target.id == 'clear-all') {
         clearAll();
 
     }
     if (target.className == 'checked') {
-        toggleTask(target.id);
+        //Here api id is number so coverting id to num
+        toggleTask(Number(target.id));
+    }
+    if (target.id == 'Fetch-api') {
+        gettingApiData();
+        return
     }
 }
 // Initializers
 
 document.addEventListener('click', handleClickListener);
 list_input.addEventListener('keyup', handleClickListener);//separately to handle enter key event
-gettingApiData();
+// gettingApiData();

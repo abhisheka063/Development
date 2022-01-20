@@ -1,0 +1,36 @@
+<html>
+<title>
+    My Todo APP
+</title>
+
+<head>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header><i>Todo List</i></header>
+        <br>
+        <div class="input-div">
+            
+            <input type="text" placeholder="Enter Your tasks" id="task-input" class="task-input" >
+            <!-- https://cdn-icons-png.flaticon.com/512/1828/1828817.png -->
+            <span class="button"><img src="https://cdn-icons.flaticon.com/png/512/1008/premium/1008978.png?token=exp=1642594966~hmac=23bc41e941e623ee38896467a2ef5bc8" style="height: 40;width: 45;" class="add"></span>
+            
+            <!-- <img src="https://www.flaticon.com/premium-icon/plus_1008978" class="icons"> -->
+        </div>
+        <ul class='list-ul' id="list-ul">
+           
+        </ul>
+        <div class="footer">
+            <span id='pending'><i>Pending Tasks:0</i></span>
+            <button class="complete-all">Complete All</button>
+            <Button class="clear-all">Clear All</Button>
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+
+</html>

@@ -1,0 +1,130 @@
+body{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgb(66, 152, 223), rgb(179, 57, 118));
+
+}
+
+
+/* This is for icons inside lists */
+img{
+    width: 30;
+    height: 30;
+}
+
+.wrapper{
+    text-align: center;
+    max-width: 400px;
+    margin: 120px auto;
+    width: 100%;
+    background: white;
+    border-radius: 30px;
+    padding: 20px;
+    position: relative;
+}
+.wrapper header{
+    font-size: 30px;
+    font-weight: bold;
+}
+/* Input div */
+.input-div{
+    display: flex;
+    height: 40px;
+    width: 100%;
+}
+.input-div input{
+    width: 85%;
+    height: 100%;
+    border:none;
+    border-bottom: 1px black solid;
+    padding-left: 15px;
+    /* border-radius: 30px; */
+    outline: none;
+    text-align: center;
+}
+.input-div .button{
+    width: 55px;
+    height: 100%;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    margin-left: 8px;
+    cursor: pointer;
+
+}
+
+/* List ul div */
+.list-ul{
+    padding:0;
+    position: relative;
+}
+.list-ul li{
+    list-style: none;
+    line-height: 2rem;
+    color: blue;
+    font-family: cursive;
+    font-weight: bold;
+    
+}
+.list-ul li span img{
+    cursor: pointer;
+    transition: opacity 1s;
+    opacity: 0;
+}
+.list-ul li span img:hover{
+    opacity: 1;
+  
+}
+.list-ul input{
+    position: absolute;
+    left:0;
+}
+.list-ul span{
+    position: absolute;
+    right:0;
+}
+.wrapper .footer{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items:flex-start;
+
+}
+.footer span{
+    font-style: italic;
+    font-weight: 900;
+    color: darkblue;
+}
+.footer .clear-all{
+    position: absolute;
+    right: 20;
+    font-weight: bold;
+    color: rgb(244, 244, 248);
+    background-color: rgb(214, 53, 32);
+    border: 1px rgb(214, 53, 32) solid;
+    border-radius: 20px;
+    line-height: 1.4rem;
+    transition: 0.5s;
+}
+.footer .clear-all:hover{
+    background-color: rgb(244, 244, 248);
+    color:rgb(214, 53, 32);
+
+}
+.footer .complete-all{
+    position: relative;
+    left:33;
+    color: rgb(1, 4, 160);
+    font-weight: bold;
+    background-color: rgb(89, 240, 182);
+    border: 1px rgb(34, 216, 125) solid;
+    border-radius: 20px;
+    line-height: 1.4rem;
+    transition: background-color 0.5s;
+    
+}
+.footer .complete-all:hover{
+    background-color: rgb(1, 4, 160);
+    color:rgb(89, 240, 182);
+
+}

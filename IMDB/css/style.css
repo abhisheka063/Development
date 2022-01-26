@@ -1,0 +1,15 @@
+/* Favourite button */
+.fa-gratipay{
+    color:red;
+    width: 40px;
+    font-size:1.6rem;
+}
+/* Preloader */
+.loader{
+    background-position: center;
+    background-image: url('../images/loader2.gif');
+    background-repeat: no-repeat;
+    width:200px;
+    height:200px;
+    z-index: 9999;
+}

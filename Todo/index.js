@@ -109,6 +109,7 @@ async function gettingApiData() {
 
 handleClickListener = (e) => {
     const target = e.target;
+    // console.log(list_input.value)
     if (target.id == 'complete-all') {
         completeAll();
     }

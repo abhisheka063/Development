@@ -27,3 +27,6 @@ it is used in toggling task and deleting task.
 ==================================================================================================================================================================
 ##**##Note: As we are using Api -> Api will return id values in number so thats why i am converting id values to Number so that we can compare and manipulater it.
 and later on when same id is assigned to lists at that place we are again convertingthem to string because id="" only accept string.
+
+##Screenshot of Todo
+![image](https://user-images.githubusercontent.com/40734291/151228544-3c113394-50fa-4b5e-b3cf-d5f42d0d7194.png)

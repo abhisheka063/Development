@@ -1,14 +1,14 @@
 # Fuctional components
--> add task(task) 
--> delete task(task id)
--> mark completed/toggle(taskId)
--> display list()
--> renderList()
--> clear all
--> completeAll()
--> handleClickListener() to handle clck events
--> gettingApiData()
--> calculate pending tasks()
+ 1.add task(task)
+ 2.delete task(task id)
+ 3.mark completed/toggle(taskId)
+ 4.display list()
+ 5.renderList()
+ 6.clear all
+ 7.completeAll()
+ 8.handleClickListener() to handle clck events
+ 9.gettingApiData()
+ 10.calculate pending tasks()
 
 #steps followed:[Summary]
 1. Created function to add task-> add task() will set values and push object in data array->created and call displaylist function
@@ -27,3 +27,6 @@ it is used in toggling task and deleting task.
 ==================================================================================================================================================================
 ##**##Note: As we are using Api -> Api will return id values in number so thats why i am converting id values to Number so that we can compare and manipulater it.
 and later on when same id is assigned to lists at that place we are again convertingthem to string because id="" only accept string.
+
+##Screenshot of Todo
+![image](https://user-images.githubusercontent.com/40734291/151228544-3c113394-50fa-4b5e-b3cf-d5f42d0d7194.png)

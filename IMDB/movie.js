@@ -43,9 +43,9 @@ var movie = (function () {
         more_details.innerHTML = `<hr><p><span><b>Plot:&nbsp;</b><span>${movie_details.Plot}</p>`;
         movie_brief.append(more_details)
 
-        //setting preloader to none
-        var a = document.getElementById('loader');
-        a.style.display = 'none';
+        //setting preloader to none i.e loading completed
+        let loader = document.getElementById('loader');
+        loader.style.display = 'none';
     }
     //Below function is to get local data to movie_details object
     function getoldLocal() {

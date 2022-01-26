@@ -1,14 +1,14 @@
 # Fuctional components
--> add task(task) 
--> delete task(task id)
--> mark completed/toggle(taskId)
--> display list()
--> renderList()
--> clear all
--> completeAll()
--> handleClickListener() to handle clck events
--> gettingApiData()
--> calculate pending tasks()
+ 1.add task(task)
+ 2.delete task(task id)
+ 3.mark completed/toggle(taskId)
+ 4.display list()
+ 5.renderList()
+ 6.clear all
+ 7.completeAll()
+ 8.handleClickListener() to handle clck events
+ 9.gettingApiData()
+ 10.calculate pending tasks()
 
 #steps followed:[Summary]
 1. Created function to add task-> add task() will set values and push object in data array->created and call displaylist function
